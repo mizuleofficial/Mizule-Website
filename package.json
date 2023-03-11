@@ -27,7 +27,7 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"prod-git": "npm run build && git branch -m prod && git add . && git add -f build && git commit -m 'PROD' && git push -f origin prod && git branch -m dev",
+		"prod-git": "npm run build && git branch -m prod && git add . && git commit -m 'PROD' && git push -f origin prod && git branch -m dev",
 		"dev-git": "git branch -m dev && git add . && git commit -m 'DEV' && git push origin dev"
 	},
 	"eslintConfig": {
