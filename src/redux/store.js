@@ -5,7 +5,8 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import { rootReducer } from './reducers/root-reducer';
 
-const NODE_ENV = window.location.hostname === 'localhost' ? "development" : "production"
+// import { NODE_ENV } from '../utils/common.util';
+const NODE_ENV = "development"
 
 const middlewares = [];
 
