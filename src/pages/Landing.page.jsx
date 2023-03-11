@@ -1,20 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import PlayStore from '../assets/playstore.png';
 import AppStore from '../assets/appstore.svg';
 import HeroPNG from '../assets/landing-page/hero.png';
 
-import AuroraBg from '../components/extras/AuroraBg/AuroraBg.component';
 import Navbar from '../components/navbar/Navbar.component';
 import Footer from '../components/Footer.component';
-import MobileNav from '../components/navbar/MobileNav.component';
 
-const Landing = () => {
+const Landing = ({ user }) => {
 	return (
 		<>
-			{window.innerWidth > 640 ? <Navbar /> : <MobileNav />}
+			<Navbar />
 			<section className='w-full h-screen flex-col md:flex-row flex items-center justify-center'>
-				<div className='w-4/5 sm:w-4/6 md:mr-14 md:max-w-[450px] text-center'>
+				<div className='w-4/5 sm:w-4/6 md:mr-14 md:max-w-[450px] text-center flex flex-col items-center'>
 					<h1 className='text-white text-4xl sm:text-5xl mb-4 md:ml-2 font-Monoton'>
 						MIZULE
 					</h1>
@@ -27,23 +26,34 @@ const Landing = () => {
 						creative talent and create stunning visuals that will surely wow any
 						audience.
 					</p>
-					<p className='text-gray-300 mt-7 md:ml-2'>Get Mizule from</p>
-
-					<div className='flex items-center justify-center'>
-						<a
-							href='https://play.google.com/store/apps/details?id=com.mizule'
-							target='_blank'
-							rel='noopener noreferrer'
-						>
-							<img
-								src={PlayStore}
-								alt='playstore'
-								className='w-[8rem] md:w-[10rem]'
-							/>
-						</a>
-						<a href='/'>
-							<img src={AppStore} alt='appstore' className='w-32' />
-						</a>
+					<div className='max-w-max'>
+						<p className='text-gray-300 mt-7 md:ml-2'>Get Mizule from</p>
+						<div className='flex items-center justify-center'>
+							<a
+								href='https://play.google.com/store/apps/details?id=com.mizule'
+								target='_blank'
+								rel='noopener noreferrer'
+							>
+								<img
+									src={PlayStore}
+									alt='playstore'
+									className='w-[8rem] md:w-[10rem]'
+								/>
+							</a>
+							<a href='/'>
+								<img src={AppStore} alt='appstore' className='w-32' />
+							</a>
+						</div>
+						<div className='w-full flex items-center gap-2 mt-3'>
+							<div className='w-full h-[1px] bg-white/50'></div>
+							<span className='text-white text-xs'>OR</span>
+							<div className='w-full h-[1px] bg-white/50'></div>
+						</div>
+						<Link to={user ? `/${user.name}` : '/signin'}>
+							<div className='bg-gradient-to-tr from-[#BF1363] to-[#0F62BA] rounded-md shadow-md mt-5 text-white p-3 w-full'>
+								Continue with Mizule Web
+							</div>
+						</Link>
 					</div>
 				</div>
 				<img src={HeroPNG} alt='mizule' className='w-56 hidden md:block' />
@@ -160,7 +170,6 @@ const Landing = () => {
 				</div>
 			</section>
 			<Footer />
-			<AuroraBg />
 		</>
 	);
 };

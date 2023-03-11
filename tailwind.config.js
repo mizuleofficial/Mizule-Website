@@ -9,5 +9,7 @@ module.exports = {
       'Righteous': ['Righteous', 'cursive']
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide')
+  ]
 }
